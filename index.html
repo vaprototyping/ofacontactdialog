@@ -29,13 +29,6 @@
     }
     v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
 })(document, 'script');
-
-// Add this separate script to hide the input bar after the widget loads
-document.addEventListener('voiceflow-ready', function() {
-    setTimeout(function() {
-        window.voiceflow.chat.hide('input');
-    }, 1000); // Delay of 1 second
-});
 </script>
 </body>
 </html>
