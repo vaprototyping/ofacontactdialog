@@ -25,10 +25,13 @@
           verify: { projectID: '66448744e62f5d516c48f002' },
           url: 'https://general-runtime.voiceflow.com',
           versionID: 'production'
+        }).then(() => {
+            // Add this block to hide the input bar
+            window.voiceflow.chat.hide('input');
         });
-      }
-      v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
-  })(document, 'script');
+    }
+    v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
+})(document, 'script');
 </script>
 </body>
 </html>
