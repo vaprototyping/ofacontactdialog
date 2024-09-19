@@ -30,5 +30,14 @@
       v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
   })(document, 'script');
 </script>
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(function() {
+      if (window.voiceflow && window.voiceflow.chat) {
+        window.voiceflow.chat.hide('input');
+      }
+    }, 2000); // 2-second delay to ensure widget is fully loaded
+  });
+</script>
 </body>
 </html>
