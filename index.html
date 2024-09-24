@@ -19,23 +19,15 @@
 
 <script type="text/javascript">
   (function(d, t) {
-    var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
-    v.onload = function() {
-      window.voiceflow.chat.load({
-        verify: { projectID: '66448744e62f5d516c48f002' },
-        url: 'https://general-runtime.voiceflow.com',
-        versionID: 'production'
-      }).then(() => {
-        // This code runs after the chat widget has fully loaded
-        window.voiceflow.chat.hide('input');
-        
-        // Listen for any show events and hide the input again
-        window.voiceflow.chat.on('open', () => {
-          window.voiceflow.chat.hide('input');
+      var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+      v.onload = function() {
+        window.voiceflow.chat.load({
+          verify: { projectID: '66448744e62f5d516c48f002' },
+          url: 'https://general-runtime.voiceflow.com',
+          versionID: 'production'
         });
-      });
-    }
-    v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
+      }
+      v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
   })(document, 'script');
 </script>
 </body>
