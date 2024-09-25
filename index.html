@@ -25,30 +25,18 @@
         <p>Powered by UEI</p>
     </footer>
 
-    <script type="text/javascript">
-        (function(d, t) {
-            var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
-            v.onload = function() {
-                window.voiceflow.chat.load({
-                    verify: { projectID: '66448744e62f5d516c48f002' },
-                    url: 'https://general-runtime.voiceflow.com',
-                    versionID: 'production'
-                });
-
-                // Add event listener to dropdown after Voiceflow is loaded
-                document.getElementById('deviceModelDropdown').addEventListener('change', function(event) {
-                    const selectedModel = event.target.value;
-                    if (selectedModel) {
-                        // Send selected model to Voiceflow dialog
-                        window.voiceflow.chat.interact({
-                            type: 'text',
-                            payload: selectedModel
-                        });
-                    }
-                });
-            }
-            v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
-        })(document, 'script');
-    </script>
+<script type="text/javascript">
+  (function(d, t) {
+      var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+      v.onload = function() {
+        window.voiceflow.chat.load({
+          verify: { projectID: '66f40267011c56b5632810e2' },
+          url: 'https://general-runtime.voiceflow.com',
+          versionID: 'production'
+        });
+      }
+      v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
+  })(document, 'script');
+</script>
 </body>
 </html>
