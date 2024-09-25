@@ -1,0 +1,62 @@
+/* Fonts and Base Imports */
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600&display=swap');
+
+/* General Background and Header Colors */
+.vfrc-widget {
+  /* background-color: #011627; Night Owl dark blue background for overall widget */
+  color: #d6deeb; /* Light text color for contrast */
+  font-family: 'Source Code Pro', monospace; /* Font inspired by coding environments */
+  font-size: 16px;
+}
+
+/* Header Styling */
+.vfrc-header {
+  background-color: #011627;
+  color: #d6deeb;
+  border-bottom: 1px solid #004777; /* Slight border to distinguish header */
+}
+
+.vfrc-assistant-info--title, .vfrc-assistant-info--description {
+  color: #ffffff;
+}
+
+/* Chat Area Styling */
+.vfrc-chat {
+  background-color: #011627;
+} 
+
+/* Message Styles */
+.vfrc-system-response .vfrc-message {
+  background-color: #283758; /* Brighter blue for text */
+  color: #ffffff;
+}
+
+.vfrc-user-response .vfrc-message{
+  background-color: #1d3b53; /* Dark grey/blue */
+  color: #ffffff; /* White text for contrast */
+}
+
+/* Input Styles */
+.vfrc-chat-input textarea, .vfrc-chat-input--button {
+  background-color: #1d3b53 !important; /* Dark grey/blue for input field background */
+  color: #ffffff !important; /* White text for input text */
+}
+
+/* Buttons and Launcher Styles */
+.vfrc-button, .vfrc-launcher {
+  background-color: #011627;
+  color: #d6deeb;
+  border: 1px solid #4b6479; /* Subtle border for buttons */
+}
+
+/* Launcher Specific Styling */
+.vfrc-launcher {
+  width: 200px; /* Width of the rectangle */
+  height: 40px; /* Height of the rectangle */
+  border-radius: 30px; /* Soften the edges to create a pill shape */
+  position: fixed; /* Fixed position to keep it relative to the viewport */
+  right: 0; /* Align to the right edge of the viewport */
+  margin-right: -50px; /* Partially hide the launcher */
+  bottom: 20px; /* Position it 20px from the bottom */
+  z-index: 1000; /* Ensure it's on top of other elements */
+}
