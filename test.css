@@ -4,59 +4,129 @@
 /* General Background and Header Colors */
 .vfrc-widget {
   /* background-color: #011627; Night Owl dark blue background for overall widget */
-  color: #d6deeb; /* Light text color for contrast */
+  color: #ffffff; /* Light text color for contrast */
   font-family: 'Source Code Pro', monospace; /* Font inspired by coding environments */
   font-size: 16px;
 }
 
 /* Header Styling */
 .vfrc-header {
-  background-color: #011627;
+  background-color: #ffffff;
   color: #d6deeb;
-  border-bottom: 1px solid #004777; /* Slight border to distinguish header */
+  border-bottom: 2px solid #ffffff; /* Slight border to distinguish header */
 }
 
 .vfrc-assistant-info--title, .vfrc-assistant-info--description {
-  color: #ffffff;
+  color: rgba(0,0,0,0.9);
 }
 
 /* Chat Area Styling */
 .vfrc-chat {
-  background-color: #011627;
-} 
+  background-color: #ffffff;
+}
 
 /* Message Styles */
 .vfrc-system-response .vfrc-message {
-  background-color: #283758; /* Brighter blue for text */
-  color: #ffffff;
+  background-color: #f4f4f4; /* Brighter blue for text */
+  color: rgba(0,0,0,0.9);
 }
 
 .vfrc-user-response .vfrc-message{
-  background-color: #1d3b53; /* Dark grey/blue */
+  background-color: rgb(193, 12, 22); /* Red */
   color: #ffffff; /* White text for contrast */
 }
 
 /* Input Styles */
 .vfrc-chat-input textarea, .vfrc-chat-input--button {
-  background-color: #1d3b53 !important; /* Dark grey/blue for input field background */
-  color: #ffffff !important; /* White text for input text */
+  background-color: #ffffff !important; /* Dark grey/blue for input field background */
+  color: #00000 !important; /* White text for input text */
 }
 
 /* Buttons and Launcher Styles */
 .vfrc-button, .vfrc-launcher {
-  background-color: #011627;
-  color: #d6deeb;
-  border: 1px solid #4b6479; /* Subtle border for buttons */
+  background-color: #ffffff;
+  color: #737376;
+  border: 1px solid #dfdfdf; /* Subtle border for buttons */
 }
 
-/* Launcher Specific Styling */
+/* Centered Launcher Specific Styling */
 .vfrc-launcher {
-  width: 200px; /* Width of the rectangle */
-  height: 40px; /* Height of the rectangle */
-  border-radius: 30px; /* Soften the edges to create a pill shape */
-  position: fixed; /* Fixed position to keep it relative to the viewport */
-  right: 0; /* Align to the right edge of the viewport */
-  margin-right: -50px; /* Partially hide the launcher */
-  bottom: 20px; /* Position it 20px from the bottom */
-  z-index: 1000; /* Ensure it's on top of other elements */
+  width: 80px;               /* Set width for the launcher */
+  height: 80px;              /* Set height for the launcher */
+  border-radius: 50%;        /* Make it a perfect circle */
+  /*position: fixed;           /* Fixed position to keep it relative to the viewport */
+  bottom: 50%;              /* Position it 20px from the bottom */
+  right: 50%;               /* Position it 20px from the right */
+  z-index: 1000;             /* Ensure it's on top of other elements */
+  display: flex;             /* Center content inside the launcher */
+  justify-content: center;   /* Align content horizontally */
+  align-items: center;       /* Align content vertically */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Add a subtle shadow */
+}
+
+/* Change background color when hovered */
+.vfrc-launcher:hover {
+  background-color: #f5f5f5; /* Change to a light color on hover, or set to white if no change desired */
+  cursor: pointer;           /* Change cursor to pointer for better UX */
+}
+
+/* Adjust the overall carousel container */
+.vfrc-carousel.c-JFdmb {
+  display: flex; /* Align cards in a row */
+  justify-content: center; /* Center the cards */
+  gap: 0px; /* Reduce the gap between cards */
+}
+
+/* Target all cards within the specific carousel */
+.vfrc-carousel.c-JFdmb .vfrc-card {
+  background-color: #ffffff; /* Change the background color to white */
+  margin-right: 1px; /* Reduce the spacing between cards (right side) */
+  margin-left: 1px; /* Reduce the spacing between cards (left side) */
+  margin-top: 1px; /* Adjust top margin */
+  margin-bottom: 1px; /* Adjust bottom margin */
+  border-radius: 0; /* Remove rounded corners (no border radius) */
+  box-shadow: none; /* Remove any shadow if present */
+  width: 125px; /* Set the desired width */
+  height: 60px; /* Automatically adjust the height */
+  max-width: 100%; /* Ensure the button doesn't exceed the card's width */
+  border: 1px solid #ffffff; /* Set a white border */
+  padding: 0; /* Remove any additional padding */
+}
+
+/* Target section only inside the vfrc-carousel */
+.vfrc-carousel.c-JFdmb section.vfrc-card {
+  background-color: #ffffff; /* Ensure the card background is white */
+  margin: 0px; /* Remove any margin from the card */
+  padding: 0px; /* Remove padding */
+  border: none; /* Remove borders */
+  box-shadow: none; /* Remove shadow */
+  width: 120px; /* Set the width for the card */
+  height: auto; /* Auto adjust the height */
+  border-radius: 5px; /* Optional rounded corners */
+}
+
+/* Remove the margin from the first card to align it with the left side */
+.vfrc-carousel.c-JFdmb .vfrc-card:first-child {
+  margin-left: 0; /* Set margin-left to 0 for the first card */
+}
+
+/* Adjust the content inside the card */
+.vfrc-carousel.c-JFdmb .vfrc-card .vfrc-card--content {
+  margin-top: 1px; /* Set margin-top to 1px for the content inside the card */
+  padding: 0; /* Remove padding from the card content */
+  height: auto; /* Let the height adjust automatically */
+  width: 100px; /* Set the desired width */
+}
+
+/* Optionally target the buttons inside the cards */
+.vfrc-carousel.c-JFdmb .vfrc-card .vfrc-button {
+  width: 100px;  /* Set the desired width */
+  max-width: 100%;  /* Ensure the button doesn't exceed the card's width */
+  padding: 5px;  /* Optional: Adjust padding for better fit */
+  border: 1px solid #ccc; /* Add a light border to the button */
+  text-align: center;  /* Center the text */
+  z-index: 1; /* Bring the button above other elements */
+  position: relative; /* Ensure the button is positioned correctly */
+  background-color: #ffffff; /* Ensure button background is also white */
+  box-sizing: border-box; /* Ensure padding and borders are included in width */
 }
