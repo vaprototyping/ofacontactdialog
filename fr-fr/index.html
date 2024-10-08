@@ -24,31 +24,42 @@
         <p>Powered by UEI</p>
     </footer>
 
-    <script type="text/javascript">
-      (function(d, t) {
-          var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
-          v.onload = function() {
-            let currentUrl = window.location.href;
-            let pathPrefix = currentUrl.split("/")[3] || "fr-fr";
-            let languageCode = pathPrefix.substring(0, 2);
+<script type="text/javascript">
+  (function(d, t) {
+      var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+      v.onload = function() {
+        let currentUrl = window.location.href;
+        console.log("Current URL: ", currentUrl);  // Log the current URL
+        
+        let urlParts = currentUrl.split("/");  // Split the URL into parts
+        console.log("URL Parts: ", urlParts);  // Log the URL parts to verify
 
-            window.voiceflow.chat.load({
-              verify: { projectID: '66f40267011c56b5632810e2' },
-              url: 'https://general-runtime.voiceflow.com',
-              versionID: 'production',
-              assistant: { stylesheet: "../test.css" },
-              event: {
-                type: 'launch',
-                payload: {
-                  language: languageCode,
-                  URL: currentUrl
-                }
-              }
-            });
-          };
-          v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
-      })(document, 'script');
-    </script>
+        let pathPrefix = urlParts[4] || "en-gb";  // Use the 4th part of the URL
+        console.log("Extracted Path Prefix: ", pathPrefix);  // Log the extracted path prefix
+
+        let languageCode = pathPrefix.substring(0, 2);  // Extract first two characters
+        console.log("Extracted Language Code: ", languageCode);  // Log the language code
+
+        // Initialize the Voiceflow chatbot with the extracted language code
+        window.voiceflow.chat.load({
+          verify: { projectID: '66f40267011c56b5632810e2' },
+          url: 'https://general-runtime.voiceflow.com',
+          versionID: 'production',
+          assistant: { stylesheet: "/ofacontactdialog/test.css" },
+          event: {
+            type: 'launch',
+            payload: {
+              language: languageCode,  // Pass the extracted language code
+              URL: currentUrl  // Pass the current URL for additional context
+            }
+          }
+        });
+      };
+      v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; 
+      v.type = "text/javascript"; 
+      s.parentNode.insertBefore(v, s);
+  })(document, 'script');
+</script>
 </body>
 </html>
 
