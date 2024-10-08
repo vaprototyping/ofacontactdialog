@@ -1,1 +1,54 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot-Prototyp</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header>
+        <h1>VA-Prototyp für OFA-Kundensupport-Dialog</h1>
+    </header>
+    <main>
+        <p>Willkommen bei unserer VA-Demo! Wählen Sie eine Sprache, um fortzufahren.</p>
+        <ul>
+            <li><a href="../en-gb/">UK - Englisch</a></li>
+            <li><a href="../es-es/">Spanien - Spanisch</a></li>
+            <li><a href="../fr-fr/">Frankreich - Französisch</a></li>
+            <li><a href="../it-it/">Italien - Italienisch</a></li>
+            <li><a href="../de-de/">Deutschland - Deutsch</a></li>
+        </ul>
+    </main>
+    <footer>
+        <p>Powered by UEI</p>
+    </footer>
+
+    <script type="text/javascript">
+      (function(d, t) {
+          var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+          v.onload = function() {
+            let currentUrl = window.location.href;
+            let pathPrefix = currentUrl.split("/")[3] || "de-de";
+            let languageCode = pathPrefix.substring(0, 2);
+
+            window.voiceflow.chat.load({
+              verify: { projectID: '66f40267011c56b5632810e2' },
+              url: 'https://general-runtime.voiceflow.com',
+              versionID: 'production',
+              assistant: { stylesheet: "test.css" },
+              event: {
+                type: 'launch',
+                payload: {
+                  language: languageCode,
+                  URL: currentUrl
+                }
+              }
+            });
+          };
+          v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
+      })(document, 'script');
+    </script>
+</body>
+</html>
 
