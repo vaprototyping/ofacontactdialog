@@ -4,23 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chatbot Prototype</title>
-    <link rel="stylesheet" href="style.css">
-    <style>
-        /* Place styles here or in style.css */
-    </style>
+    <link rel="stylesheet" href="../style.css">
 </head>
 <body>
     <header>
-        <h1>VA Prototype for OFA Contact Support Dialog</h1>
+        <h1>VA Prototype for OFA Customer Support Dialog</h1>
     </header>
     <main>
-        <p>Welcome to Our VA Demo! Select a language to proceed:</p>
+        <p>Welcome to our VA demo! Select a language to begin.</p>
         <ul>
-            <li><a href="en-gb/">UK - English</a></li>
-            <li><a href="es-es/">Spain - Spanish</a></li>
-            <li><a href="fr-fr/">France - French</a></li>
-            <li><a href="it-it/">Italy - Italian</a></li>
-            <li><a href="de-de/">Germany - German</a></li>
+            <li><a href="../en-gb/">UK - English</a></li>
+            <li><a href="../es-es/">Spain - Spanish</a></li>
+            <li><a href="../fr-fr/">France - French</a></li>
+            <li><a href="../it-it/">Italy - Italian</a></li>
+            <li><a href="../de-de/">Germany - German</a></li>
         </ul>
     </main>
     <footer>
@@ -32,8 +29,8 @@
           var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
           v.onload = function() {
             let currentUrl = window.location.href;
-            let pathPrefix = currentUrl.split("/")[3] || "en-gb"; // Default to 'en-gb' if no path is selected
-            let languageCode = pathPrefix.substring(0, 2); // Get the language code (e.g., 'en')
+            let pathPrefix = currentUrl.split("/")[3] || "en-gb";
+            let languageCode = pathPrefix.substring(0, 2);
 
             window.voiceflow.chat.load({
               verify: { projectID: '66f40267011c56b5632810e2' },
@@ -43,7 +40,7 @@
               event: {
                 type: 'launch',
                 payload: {
-                  language: languageCode, // Pass the extracted language code
+                  language: languageCode,
                   URL: currentUrl
                 }
               }
@@ -54,4 +51,3 @@
     </script>
 </body>
 </html>
-
