@@ -40,6 +40,12 @@
         let languageCode = pathPrefix.substring(0, 2);  // Extract first two characters
         console.log("Extracted Language Code: ", languageCode);  // Log the language code
 
+        // Log the payload to verify what is being passed to the chatbot
+        console.log("Payload:", {
+          language: languageCode,
+          URL: currentUrl
+        });
+
         // Initialize the Voiceflow chatbot with the extracted language code
         window.voiceflow.chat.load({
           verify: { projectID: '66f40267011c56b5632810e2' },
