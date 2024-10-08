@@ -5,13 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chatbot Prototype</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Place styles here or in style.css */
+    </style>
 </head>
 <body>
     <header>
         <h1>VA Prototype for OFA Contact Support Dialog</h1>
     </header>
     <main>
-        <p>Welcome to Our VA Demo! Explore how VA can assist you by clicking the chat icon at the bottom right.</p>
+        <p>Welcome to Our VA Demo! Select a language to proceed:</p>
+        <ul>
+            <li><a href="en-gb/">UK - English</a></li>
+            <li><a href="es-es/">Spain - Spanish</a></li>
+            <li><a href="fr-fr/">France - French</a></li>
+            <li><a href="it-it/">Italy - Italian</a></li>
+            <li><a href="de-de/">Germany - German</a></li>
+        </ul>
     </main>
     <footer>
         <p>Powered by UEI</p>
@@ -21,13 +31,24 @@
       (function(d, t) {
           var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
           v.onload = function() {
+            let currentUrl = window.location.href;
+            let pathPrefix = currentUrl.split("/")[3] || "en-gb"; // Default to 'en-gb' if no path is selected
+            let languageCode = pathPrefix.substring(0, 2); // Get the language code (e.g., 'en')
+
             window.voiceflow.chat.load({
               verify: { projectID: '66f40267011c56b5632810e2' },
               url: 'https://general-runtime.voiceflow.com',
-              versionID: 'production',  // Add a comma here
-              assistant: { stylesheet: "test.css" }  // Corrected this line
+              versionID: 'production',
+              assistant: { stylesheet: "test.css" },
+              event: {
+                type: 'launch',
+                payload: {
+                  language: languageCode, // Pass the extracted language code
+                  URL: currentUrl
+                }
+              }
             });
-          }
+          };
           v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
       })(document, 'script');
     </script>
