@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chatbot Prototype</title>
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="/ofacontactdialog/style.css">
 </head>
 <body>
     <header>
@@ -13,11 +13,11 @@
     <main>
         <p>Welcome to our VA demo! Select a language to begin.</p>
         <ul>
-    <li><a href="/ofacontactdialog/en-gb/">UK - English</a></li>
-    <li><a href="/ofacontactdialog/es-es/">Spain - Spanish</a></li>
-    <li><a href="/ofacontactdialog/fr-fr/">France - French</a></li>
-    <li><a href="/ofacontactdialog/it-it/">Italy - Italian</a></li>
-    <li><a href="/ofacontactdialog/de-de/">Germany - German</a></li>
+            <li><a href="/ofacontactdialog/en-gb/">UK - English</a></li>
+            <li><a href="/ofacontactdialog/es-es/">Spain - Spanish</a></li>
+            <li><a href="/ofacontactdialog/fr-fr/">France - French</a></li>
+            <li><a href="/ofacontactdialog/it-it/">Italy - Italian</a></li>
+            <li><a href="/ofacontactdialog/de-de/">Germany - German</a></li>
         </ul>
     </main>
     <footer>
@@ -29,14 +29,14 @@
           var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
           v.onload = function() {
             let currentUrl = window.location.href;
-            let pathPrefix = currentUrl.split("/")[3] || "en-gb";
+            let pathPrefix = currentUrl.split("/")[4] || "en-gb"; // Adjusted for absolute path depth
             let languageCode = pathPrefix.substring(0, 2);
 
             window.voiceflow.chat.load({
               verify: { projectID: '66f40267011c56b5632810e2' },
               url: 'https://general-runtime.voiceflow.com',
               versionID: 'production',
-              assistant: { stylesheet: "../test.css" },
+              assistant: { stylesheet: "/ofacontactdialog/test.css" }, // Absolute path for test.css
               event: {
                 type: 'launch',
                 payload: {
@@ -46,7 +46,9 @@
               }
             });
           };
-          v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
+          v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; 
+          v.type = "text/javascript"; 
+          s.parentNode.insertBefore(v, s);
       })(document, 'script');
     </script>
 </body>
