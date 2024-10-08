@@ -52,11 +52,13 @@
           url: 'https://general-runtime.voiceflow.com',
           versionID: 'production',
           assistant: { stylesheet: "/ofacontactdialog/test.css" },  // Use the stylesheet if necessary
-          event: {
-            type: 'launch',
-            payload: {
-              language: languageCode,  // Pass the extracted language code
-              URL: currentUrl  // Pass the current URL for additional context
+          launch: {
+            event: {
+              type: 'launch',
+              payload: {
+                language: languageCode,  // Pass the extracted language code
+                URL: currentUrl  // Pass the current URL for additional context
+              }
             }
           }
         });
@@ -68,6 +70,7 @@
       s.parentNode.insertBefore(v, s);
   })(document, 'script');
 </script>
+
 
 </body>
 </html>
