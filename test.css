@@ -16,6 +16,11 @@
   border-bottom: 2px solid #ffffff; /* Slight border to distinguish header */
 }
 
+.vfrc-header--title.c-kfyIxT {
+  color: rgba(0, 0, 0, 0.9); /* Set text color to dark for readability */
+  background-color: transparent; /* Keep background transparent or adjust as needed */
+}
+
 .vfrc-assistant-info--title, .vfrc-assistant-info--description {
   color: rgba(0,0,0,0.9);
 }
