@@ -37,14 +37,16 @@
         url: 'https://general-runtime.voiceflow.com',
         versionID: 'production',
         assistant: { stylesheet: "/ofacontactdialog/test.css" },
-        launch: {
-            event: {
-                type: 'launch',
+          launch: {
+              event: {
+                type: "launch",
                 payload: {
-                    url: current_url
+                  url: current_url 
                 }
+              }
             }
-        }
+        });
+      }
       v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
   })(document, 'script');
 </script>
