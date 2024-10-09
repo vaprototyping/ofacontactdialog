@@ -24,51 +24,32 @@
         <p>Powered by UEI</p>
     </footer>
 
+<script>
+    var current_url = window.location.href;
+</script>
+
 <script type="text/javascript">
   (function(d, t) {
       var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
-      
-      // This function will be executed when the script is loaded
       v.onload = function() {
-        // Get the current URL of the page
-        let currentUrl = window.location.href;
-        console.log("Current URL: ", currentUrl);  // Log the current URL to ensure we have the right one
-        
-        // Split the URL to extract the language code from the 4th part (e.g., 'en-gb')
-        let urlParts = currentUrl.split("/");  
-        console.log("URL Parts: ", urlParts);  // Log the URL parts to verify the structure
-        
-        // Extract the path prefix (language code), default to 'en-gb' if missing
-        let pathPrefix = urlParts[4] || "en-gb";  
-        console.log("Extracted Path Prefix: ", pathPrefix);  // Log the extracted path prefix
-
-        // Extract the first two characters of the language code (e.g., 'en', 'de', etc.)
-        let languageCode = pathPrefix.substring(0, 2);  
-        console.log("Extracted Language Code: ", languageCode);  // Log the language code to confirm
-        
-        // Initialize the Voiceflow chatbot with the extracted language code and URL
         window.voiceflow.chat.load({
-          verify: { projectID: '66f40267011c56b5632810e2' },  // Your Voiceflow project ID
-          url: 'https://general-runtime.voiceflow.com',
-          versionID: 'production',
-          assistant: { stylesheet: "/ofacontactdialog/test.css" },  // Use the stylesheet if necessary
-          event: {
-            type: 'launch',
-            payload: {
-              language: languageCode,  // Pass the extracted language code
-              URL: currentUrl  // Pass the current URL for additional context
+        verify: { projectID: '66f40267011c56b5632810e2' },
+        url: 'https://general-runtime.voiceflow.com',
+        versionID: 'production',
+        assistant: { stylesheet: "/ofacontactdialog/test.css" },
+          launch: {
+              event: {
+                type: "launch",
+                payload: {
+                  url: current_url 
+                }
+              }
             }
-          }
         });
-      };
-
-      // Load the Voiceflow widget
-      v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; 
-      v.type = "text/javascript"; 
-      s.parentNode.insertBefore(v, s);
+      }
+      v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
   })(document, 'script');
 </script>
 
 </body>
 </html>
-
