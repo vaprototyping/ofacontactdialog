@@ -6,52 +6,102 @@
     <title>Chatbot Prototype</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Place styles here or in style.css */
+        /* Style to align the main content using flexbox */
+        #main-content {
+            display: flex;
+            justify-content: center; /* Center content horizontally */
+            align-items: flex-start; /* Align items to the top */
+            padding: 20px;
+            height: 100vh; /* Full viewport height */
+            box-sizing: border-box;
+        }
+
+        /* Move the language links to the far left */
+        #language-selection {
+            margin-right: 20px; /* Add some space between the language selection and chatbot */
+            position: absolute;
+            left: 500px; /* Fixed to the left side */
+            top: 50%; /* Center vertically relative to the page */
+            transform: translateY(-50%);
+        }
+
+        /* Style for the chatbot container */
+        #chatbot-container {
+          width: 400px;
+          max-width: 100%;
+          height: 700px;
+          margin: 0 auto;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+          border-radius: 8px;
+          background-color: white;
+          border: 1px solid #ccc; /* Optional: Add a border */
+          justify-content: center;
+          align-items: center;
+        }
     </style>
 </head>
 <body>
     <header>
         <h1>VA Prototype for OFA Contact Support Dialog</h1>
     </header>
-    <main>
-        <p>Welcome to Our VA Demo! Select a language to proceed:</p>
-        <ul>
-            <li><a href="en-gb/">UK - English</a></li>
-            <li><a href="es-es/">Spain - Spanish</a></li>
-            <li><a href="fr-fr/">France - French</a></li>
-            <li><a href="it-it/">Italy - Italian</a></li>
-            <li><a href="de-de/">Germany - German</a></li>
-        </ul>
-    </main>
+
+    <!-- Main content -->
+    <div id="main-content">
+        <!-- Language links, fixed to the left of the page -->
+        <div id="language-selection">
+            <p>Welcome to Our VA Demo!</p>
+            <p>Select a language to proceed:</p>
+            <ul>
+                <li><a href="en-gb/">UK - English</a></li>
+                <li><a href="es-es/">Spain - Spanish</a></li>
+                <li><a href="fr-fr/">France - French</a></li>
+                <li><a href="it-it/">Italy - Italian</a></li>
+                <li><a href="de-de/">Germany - German</a></li>
+            </ul>
+        </div>
+
+        <!-- Div to hold the chatbot, centered on the page -->
+        <div id="chatbot-container"></div>
+    </div>
+
     <footer>
         <p>Powered by UEI</p>
     </footer>
 
-<script>
-    var current_url = window.location.href;
-</script>
+    <script>
+        var current_url = window.location.href;
+    </script>
 
-<script type="text/javascript">
-  (function(d, t) {
-      var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
-      v.onload = function() {
-        window.voiceflow.chat.load({
-          verify: { projectID: '66f40267011c56b5632810e2' },
-          url: 'https://general-runtime.voiceflow.com',
-          versionID: 'production',
-          assistant: { stylesheet: "/ofacontactdialog/test.css" },
-          launch: {
-              event: {
-                type: "launch",
-                payload: {
-                  url: current_url 
-                }
+    <!-- Voiceflow Webchat widget -->
+    <script type="text/javascript">
+      (function(d, t) {
+          var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+          v.onload = function() {
+            window.voiceflow.chat.load({
+              verify: { projectID: '66f40267011c56b5632810e2' },  // Your project ID
+              url: 'https://general-runtime.voiceflow.com',
+              versionID: 'production',
+              assistant: { stylesheet: "/ofacontactdialog/test.css" },  // Custom stylesheet if any
+              render: {
+                  mode: 'embedded',  // Keep embedded mode
+                  target: document.getElementById('chatbot-container'),  // Set your target container
+                  autostart: true  // Ensure autostart is set to true
+              },
+              launch: {
+                  event: {
+                    type: "launch",
+                    payload: {
+                      url: current_url  // Passing current URL as payload
+                    }
+                  }
               }
-            }
-        });
-      }
-      v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
-  })(document, 'script');
-</script>
+            });
+          }
+          v.src = "https://cdn.voiceflow.com/widget/bundle.mjs";
+          v.type = "text/javascript";
+          s.parentNode.insertBefore(v, s);
+      })(document, 'script');
+    </script>
+
 </body>
 </html>
