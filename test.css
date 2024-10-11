@@ -11,8 +11,7 @@
 
 /* Header Styling */
 .vfrc-header {
-  background-color: #ffffff;
-  color: #d6deeb;
+  background-color: #e6e6e6;
   border-bottom: 2px solid #ffffff;
 }
 
@@ -118,15 +117,14 @@
   width: 100px; /* Set the desired width */
 }
 
-/* Optionally target the buttons inside the cards */
-.vfrc-carousel.c-JFdmb .vfrc-card .vfrc-button {
-  width: 100px;  /* Set the desired width */
-  max-width: 100%;  /* Ensure the button doesn't exceed the card's width */
-  padding: 5px;  /* Optional: Adjust padding for better fit */
-  border: 1px solid #ccc; /* Add a light border to the button */
-  text-align: center;  /* Center the text */
-  z-index: 1; /* Bring the button above other elements */
-  position: relative; /* Ensure the button is positioned correctly */
-  background-color: #ffffff; /* Ensure button background is also white */
-  box-sizing: border-box; /* Ensure padding and borders are included in width */
+/* Change text color to white on hover */
+.vfrc-prompt button.vfrc-button--primary:hover,
+footer button.vfrc-button--primary:hover {
+  color: #ffffff !important;  /* Change text color to white on hover */
+}
+
+/* Apply text color to header titles */
+.vfrc-assistant-info--title,
+.vfrc-header--title {
+  color: #595959 !important;
 }
