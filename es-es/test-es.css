@@ -1,0 +1,192 @@
+/* Fonts and Base Imports */
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600&display=swap');
+
+/* General Background and Header Colors */
+.vfrc-widget {
+  /* background-color: #011627; Night Owl dark blue background for overall widget */
+  color: #ffffff; /* Light text color for contrast */
+  font-family: 'Source Code Pro', monospace; /* Font inspired by coding environments */
+  font-size: 16px;
+}
+
+/* Header Styling */
+.vfrc-header {
+  background-color: #e6e6e6;
+  border-bottom: 2px solid #ffffff;
+}
+
+.vfrc-assistant-info--title, .vfrc-assistant-info--description {
+  color: rgba(0,0,0,0.9);
+}
+
+/* Chat Area Styling */
+.vfrc-chat {
+  background-color: #ffffff;
+}
+
+/* Message Styles */
+.vfrc-system-response .vfrc-message {
+  background-color: #f4f4f4; /* Brighter blue for text */
+  color: rgba(0,0,0,0.9);
+}
+
+.vfrc-user-response .vfrc-message{
+  background-color: rgb(193, 12, 22); /* Red */
+  color: #ffffff; /* White text for contrast */
+}
+
+/* Input Styles */
+.vfrc-chat-input textarea, .vfrc-chat-input--button {
+  background-color: #ffffff !important; /* Dark grey/blue for input field background */
+  color: #00000 !important; /* White text for input text */
+}
+
+/* Buttons and Launcher Styles */
+.vfrc-button, .vfrc-launcher {
+  background-color: #ffffff;
+  color: #737376;
+  border: 1px solid #dfdfdf; /* Subtle border for buttons */
+}
+
+/* Centered Launcher Specific Styling */
+.vfrc-launcher {
+  width: 80px;               /* Set width for the launcher */
+  height: 80px;              /* Set height for the launcher */
+  border-radius: 50%;        /* Make it a perfect circle */
+  /*position: fixed;           /* Fixed position to keep it relative to the viewport */
+  bottom: 50%;              /* Position it 20px from the bottom */
+  right: 50%;               /* Position it 20px from the right */
+  z-index: 1000;             /* Ensure it's on top of other elements */
+  display: flex;             /* Center content inside the launcher */
+  justify-content: center;   /* Align content horizontally */
+  align-items: center;       /* Align content vertically */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Add a subtle shadow */
+}
+
+/* Change background color when hovered */
+.vfrc-launcher:hover {
+  background-color: #f5f5f5; /* Change to a light color on hover, or set to white if no change desired */
+  cursor: pointer;           /* Change cursor to pointer for better UX */
+}
+
+/* Adjust the overall carousel container */
+.vfrc-carousel.c-JFdmb {
+  display: flex; /* Align cards in a row */
+  justify-content: center; /* Center the cards */
+  gap: 0px; /* Reduce the gap between cards */
+}
+
+/* Target all cards within the specific carousel */
+.vfrc-carousel.c-JFdmb .vfrc-card {
+  background-color: #ffffff; /* Change the background color to white */
+  margin-right: 1px; /* Reduce the spacing between cards (right side) */
+  margin-left: 1px; /* Reduce the spacing between cards (left side) */
+  margin-top: 1px; /* Adjust top margin */
+  margin-bottom: 1px; /* Adjust bottom margin */
+  border-radius: 0; /* Remove rounded corners (no border radius) */
+  box-shadow: none; /* Remove any shadow if present */
+  width: 125px; /* Set the desired width */
+  height: 60px; /* Automatically adjust the height */
+  max-width: 100%; /* Ensure the button doesn't exceed the card's width */
+  border: 1px solid #ffffff; /* Set a white border */
+  padding: 0; /* Remove any additional padding */
+}
+
+/* Target section only inside the vfrc-carousel */
+.vfrc-carousel.c-JFdmb section.vfrc-card {
+  background-color: #ffffff; /* Ensure the card background is white */
+  margin: 0px; /* Remove any margin from the card */
+  padding: 0px; /* Remove padding */
+  border: none; /* Remove borders */
+  box-shadow: none; /* Remove shadow */
+  width: 120px; /* Set the width for the card */
+  height: auto; /* Auto adjust the height */
+  border-radius: 5px; /* Optional rounded corners */
+}
+
+/* Remove the margin from the first card to align it with the left side */
+.vfrc-carousel.c-JFdmb .vfrc-card:first-child {
+  margin-left: 0; /* Set margin-left to 0 for the first card */
+}
+
+/* Adjust the content inside the card */
+.vfrc-carousel.c-JFdmb .vfrc-card .vfrc-card--content {
+  margin-top: 1px; /* Set margin-top to 1px for the content inside the card */
+  padding: 0; /* Remove padding from the card content */
+  height: auto; /* Let the height adjust automatically */
+  width: 100px; /* Set the desired width */
+}
+
+/* Optionally target the buttons inside the cards */
+.vfrc-carousel.c-JFdmb .vfrc-card .vfrc-button {
+  width: 100px;  /* Set the desired width */
+  max-width: 100%;  /* Ensure the button doesn't exceed the card's width */
+  padding: 5px;  /* Optional: Adjust padding for better fit */
+  border: 1px solid #ccc; /* Add a light border to the button */
+  text-align: center;  /* Center the text */
+  z-index: 1; /* Bring the button above other elements */
+  position: relative; /* Ensure the button is positioned correctly */
+  background-color: #ffffff; /* Ensure button background is also white */
+  box-sizing: border-box; /* Ensure padding and borders are included in width */
+}
+
+/* Change text color to white on hover */
+.vfrc-prompt button.vfrc-button--primary:hover::before,
+footer button.vfrc-button--primary:hover::before {
+  color: #ffffff !important;  /* Change text color to white */
+}
+
+/* Hide the original text */
+.vfrc-prompt button.vfrc-button--primary,
+footer button.vfrc-button--primary {
+  color: transparent !important;
+  position: relative;
+}
+
+/* Use ::before to insert translated text */
+.vfrc-prompt button.vfrc-button--primary::before,
+footer button.vfrc-button--primary::before {
+  content: "Iniciar Chat"; /* Spanish translation */
+  color: #737376 !important;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.vfrc-prompt button.vfrc-button--primary[label="End Chat"]::before,
+footer button.vfrc-button--primary[label="End Chat"]::before {
+  content: "Terminar Chat"; /* Spanish translation for end chat */
+}
+
+.vfrc-prompt button.vfrc-button--primary[label=Cancel]::before,
+footer button.vfrc-button--primary[label=Cancel]::before {
+  content: "Cancelar";
+  color: rgba(0, 0, 0, 0.9);
+}
+
+/* Hide the original title */
+.vfrc-assistant-info--title,
+.vfrc-header--title {
+  color: transparent !important;
+  position: relative;
+}
+
+/* Insert the Spanish translation for "Contact Customer Support" */
+.vfrc-assistant-info--title::before,
+.vfrc-header--title::before {
+  content: "Contactar Soporte Cliente"; /* Spanish translation */
+  color: #595959 !important;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
