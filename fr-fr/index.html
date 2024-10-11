@@ -5,51 +5,86 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prototype Chatbot</title>
     <link rel="stylesheet" href="../style.css">
+    <style>
+        /* Style to align the main content using flexbox */
+        #main-content {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 20px;
+            height: 100vh;
+            box-sizing: border-box;
+        }
+        #language-selection {
+            position: absolute;
+            left: 500px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        #chatbot-container {
+            width: 400px;
+            max-width: 100%;
+            height: 700px;
+            margin: 0 auto;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            background-color: white;
+            border: 1px solid #ccc;
+        }
+    </style>
 </head>
 <body>
     <header>
         <h1>Prototype VA pour le dialogue de support client OFA</h1>
     </header>
-    <main>
-        <p>Bienvenue à notre démonstration VA ! Sélectionnez une langue pour commencer.</p>
-        <ul>
-    <li><a href="/ofacontactdialog/en-gb/">UK - English</a></li>
-    <li><a href="/ofacontactdialog/es-es/">Spain - Spanish</a></li>
-    <li><a href="/ofacontactdialog/fr-fr/">France - French</a></li>
-    <li><a href="/ofacontactdialog/it-it/">Italy - Italian</a></li>
-    <li><a href="/ofacontactdialog/de-de/">Germany - German</a></li>
-</ul>
-    </main>
+    <div id="main-content">
+        <div id="language-selection">
+            <p>Bienvenue à notre démonstration VA!</p>
+            <p>Sélectionnez une langue pour commencer.</p>
+            <ul>
+                <li><a href="/ofacontactdialog/en-gb/">UK - English</a></li>
+                <li><a href="/ofacontactdialog/es-es/">Spain - Spanish</a></li>
+                <li><a href="/ofacontactdialog/fr-fr/">France - French</a></li>
+                <li><a href="/ofacontactdialog/it-it/">Italy - Italian</a></li>
+                <li><a href="/ofacontactdialog/de-de/">Germany - German</a></li>
+            </ul>
+        </div>
+        <div id="chatbot-container"></div>
+    </div>
     <footer>
         <p>Powered by UEI</p>
     </footer>
-
-<script>
-    var current_url = window.location.href;
-</script>
-
-<script type="text/javascript">
-  (function(d, t) {
-      var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
-      v.onload = function() {
-        window.voiceflow.chat.load({
-        verify: { projectID: '66f40267011c56b5632810e2' },
-        url: 'https://general-runtime.voiceflow.com',
-        versionID: 'production',
-        assistant: { stylesheet: "/ofacontactdialog/test.css" },
-          launch: {
-              event: {
-                type: "launch",
-                payload: {
-                  url: current_url 
-                }
-              }
-            }
-        });
-      }
-      v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
-  })(document, 'script');
-</script>
-
+    <script>
+        var current_url = window.location.href;
+    </script>
+    <script type="text/javascript">
+        (function(d, t) {
+            var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+            v.onload = function() {
+                window.voiceflow.chat.load({
+                    verify: { projectID: '66f40267011c56b5632810e2' },
+                    url: 'https://general-runtime.voiceflow.com',
+                    versionID: 'production',
+                    assistant: { stylesheet: "/ofacontactdialog/test.css" },
+                    render: {
+                        mode: 'embedded',
+                        target: document.getElementById('chatbot-container'),
+                        autostart: true
+                    },
+                    launch: {
+                        event: {
+                            type: "launch",
+                            payload: {
+                                url: current_url
+                            }
+                        }
+                    }
+                });
+            };
+            v.src = "https://cdn.voiceflow.com/widget/bundle.mjs";
+            v.type = "text/javascript";
+            s.parentNode.insertBefore(v, s);
+        })(document, 'script');
+    </script>
 </body>
 </html>
