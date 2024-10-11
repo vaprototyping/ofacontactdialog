@@ -190,3 +190,45 @@ footer button.vfrc-button--primary[label=Cancel]::before {
   justify-content: center;
   align-items: center;
 }
+
+/* Ensure the parent container of the carousel has relative positioning */
+.vfrc-carousel {
+  position: relative;  /* Ensure this container is the reference point for absolute positioning */
+}
+
+/* Left Arrow */
+.vfrc-carousel--button.c-fHxDoY-jBiBft-alignment-left {
+  position: absolute;
+  left: 5px;  /* Move the left arrow just inside the chatbot */
+  top: 50%;    /* Vertically center the arrow */
+  transform: translateY(-50%);  /* Correct vertical alignment */
+  z-index: 10; /* Ensure it appears above other content */
+  display: flex;  /* Use flexbox to align icon and text */
+  justify-content: center; /* Center the icon inside the button */
+  align-items: center; /* Vertically center the content */
+}
+
+/* Right Arrow */
+.vfrc-carousel--button.c-fHxDoY-kQWEXg-alignment-right {
+  position: absolute;
+  right: 1px;  /* Move the right arrow just inside the chatbot */
+  top: 50%;     /* Vertically center the arrow */
+  transform: translateY(-50%);  /* Correct vertical alignment */
+  z-index: 10;  /* Ensure it appears above other content */
+  display: flex;  /* Use flexbox to align icon and text */
+  justify-content: center; /* Center the icon inside the button */
+  align-items: center; /* Vertically center the content */
+}
+
+/* Align the icon inside the button */
+.vfrc-icon.c-dhzjXW {
+  margin: 0;
+  display: inline-block;
+  vertical-align: middle;  /* Align icon vertically */
+  height: 50%;  /* Make sure the icon fits within the button */
+}
+
+/* Hide the placeholder text in the textarea field */
+.vfrc-chat-input textarea::placeholder {
+  color: transparent !important;  /* Make the placeholder text invisible */
+}
